@@ -1,0 +1,50 @@
+.timer-container {
+  font-weight: 700;
+  font-size: 2rem;
+  color: white;
+  padding: 1em 1em;
+  display: flex;
+  text-align: center;
+  border-radius: 9px;
+  box-shadow: rgba(0, 0, 0, 0.11) 0px 4px 8px;
+  transition: all 0.2s ease-out 0s;
+}
+
+.timer-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.13) 0px 6px 20px;
+}
+
+.timer-container > div {
+  flex-grow: 1;
+  width: 33%;
+}
+
+.timer-work {
+  background: linear-gradient(-180deg, #5AC5FF 0%, #88B0FF 100%);
+}
+
+.timer-break {
+  background-image: linear-gradient(-180deg, #5EEDAA 3%, #50c78f 100%);
+}
+
+.timer-button {
+  border: 0;
+  background: none;
+  color: white;
+  cursor: pointer;
+}
+
+.timer-button > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.timer-button > svg:hover {
+  width: 25px;
+  height: 25px;
+}
+
+/* bad for a11y but looks better 🤷‍ */
+.timer-button:focus {
+  outline: 0;
+}

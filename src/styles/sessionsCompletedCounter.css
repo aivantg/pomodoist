@@ -1,0 +1,15 @@
+.sessions-completed-container {
+  margin-top: 1.6rem;
+}
+
+.sessions-completed-label {
+  padding-left: 0.2em;
+  padding-right: 0.8em;
+  font-weight: 500;
+  font-size: 1em;
+  color: #555c67;
+}
+
+.sessions-completed-number {
+  font-weight: 800;
+}
