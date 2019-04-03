@@ -18,6 +18,7 @@ class App extends React.Component {
     this.state = {
       items: [],
       nextItemId: 1,
+      areItemsMarkedAsCompleted: false,
     };
   }
 
@@ -55,14 +56,18 @@ class App extends React.Component {
   }
 
   toggleItemIsCompleted(itemId) {
+    let areItemsMarkedAsCompleted = false;
     this.setState((prevState) => { // TODO: refactor this.
       const newItems = prevState.items.map((item) => {
         if (item.id === itemId) {
           item.isCompleted = !item.isCompleted;
         }
+        if (item.isCompleted) {
+          areItemsMarkedAsCompleted = true;
+        }
         return item;
       });
-      return ({ items: newItems });
+      return ({ items: newItems, areItemsMarkedAsCompleted });
     });
   }
 
@@ -74,15 +79,22 @@ class App extends React.Component {
   }
 
   render() {
-    const { items, sessionIsRunning, itemIdRunning } = this.state;
+    const {
+      items,
+      sessionIsRunning,
+      itemIdRunning,
+      areItemsMarkedAsCompleted,
+    } = this.state;
     return (
       <div className="flex-wrapper">
         <div className="container">
           <header>
             <h1 className="heading">Today</h1>
-            <button className="clear-button" type="button" onClick={this.clearCompletedItems}>
-              <Archive />
-            </button>
+            {areItemsMarkedAsCompleted && (
+              <button className="clear-button" type="button" onClick={this.clearCompletedItems}>
+                <Archive />
+              </button>
+            )}
           </header>
           {sessionIsRunning && (
             <Timer
@@ -98,8 +110,7 @@ class App extends React.Component {
           )}
           {
             (items && items.length)
-              ?
-              (
+              ? (
                 <div className="items-container">
                   {items.map(({
                     id,
@@ -117,8 +128,7 @@ class App extends React.Component {
                     />
                   ))}
                 </div>
-              )
-              : (
+              ) : (
                 <div className="empty-state-container">
                   <EmptyStateIllustration />
                   <p className="empty-state-text">Your todolist is empty</p>
