@@ -22,7 +22,8 @@ header {
   color: grey;
   border: 0;
   background: none;
-  margin-right: 1em;
+  cursor: pointer;
+  margin-right: 0.2em;
   /*
   center children vertically and horizontally
   https://stackoverflow.com/questions/25832340/css-flexbox-vertically-horizontally-center-image-without-explicitely-defining-pa
@@ -30,6 +31,18 @@ header {
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
+
+}
+
+/* bad for a11y but looks better 🤷‍ */
+/* good fix: https://medium.freecodecamp.org/how-to-make-your-fancy-svg-button-accessible-83c9172c3c15 */
+.clear-button:focus {
+  outline: 0;
+}
+
+.clear-button:hover > svg {
+  width: 31px;
+  height: 31px;
 }
 
 .clear-button > svg {

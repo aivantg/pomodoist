@@ -34,6 +34,7 @@
   align-items: center; /* align vertical */
   /* minimum size */
   flex-basis: 2.7em;
+  cursor: pointer;
 }
 
 .todo-input-button > svg {

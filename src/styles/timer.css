@@ -38,6 +38,7 @@
 }
 
 /* bad for a11y but looks better 🤷‍ */
+/* good fix: https://medium.freecodecamp.org/how-to-make-your-fancy-svg-button-accessible-83c9172c3c15 */
 .timer-button:focus {
   outline: 0;
 }
